@@ -38,5 +38,11 @@ text-indent: 2em;
 ```
 line-height: 40px
 ```
+# 创建Vue2 ～ webpack
+1. npm install -g @vue/cli
+2. vue create xxxx 【切换到你要创建项目的目录，然后使用命令创建项目】
+    - 项目的名称 一般起名；vue_page等
+3. npm run serve 【启动】
+
 
 
