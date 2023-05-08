@@ -48,8 +48,8 @@ export default {
   width: 238px;
   height: 168px;
   .up {
-    width: 238px;
-    height: 32px;
+    width: 206px;
+    height: 16px;
     padding: 8px 16px;
     .text_style {
       font-size: 12px;
