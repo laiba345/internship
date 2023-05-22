@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形绕中心点旋转</title>
+    <style>
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 100px solid #f00;
+        }
+
+        /* 最重要的属性是这个，设置旋转的最中心坐标 */
+        .triangle {
+            transform-origin: center;
+        }
+
+        .triangle {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle">
+
+    </div>
+</body>
+
+</html>
