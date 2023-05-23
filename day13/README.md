@@ -5,7 +5,7 @@
 <i class="iconfont icon-xingxingshixin" v-if="itemNext.isCollect"></i>
 <i class="iconfont icon-xingxingkongxin" v-else></i>
 ```
-- 推荐
+- 推荐;使用:class的书写方式就是里面可以书写一些表达式会自动计算
 ```
 <i :class="['iconfont', itemNext.isCollect ? 'icon-xingxingshixin' : 'icon-xingxingkongxin']"></i>
 ···
