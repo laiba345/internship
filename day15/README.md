@@ -12,4 +12,27 @@ beforeDestroy() {
 }
 ```
 - 其中resize事件通常是用来监听页面窗口大小的
+
 4. 密码在进行设置的时候,密码和确认密码不仅需要相同,而且要不为空,这样才能进行跳转操作;手机号和密码还需要进行相应的格式验证操作
+
+5. 在进行密码的验证登录时候,进行匹配的时候都是使用正则表达式的形式来进行判断验证; 而且在根据不同形式的输入密码进行显示不同的提示信息的话;需要控制好相关的变量; 如点击验证之后的操作
+```
+finishSetPD() {
+    let hasLetter = /[a-zA-Z]/.test(this.newPD);
+    let hasNumber = /\d/.test(this.newPD);
+    let hasSymbol = /[!@#$%^&*]/.test(this.newPD);
+    let validCombination = (hasLetter && hasNumber) || (hasLetter && hasSymbol) || (hasNumber && hasSymbol);
+    if (this.newPD.length < 6 || !validCombination) {
+        this.isShowOne = true
+        this.isValidOne = false
+    } else if (this.newPD !== this.confirmPD) {
+        this.isShowOne = false
+        this.isValidOne = true
+        this.isShowTwo = true
+        this.isValidTwo = false
+    }
+    if (this.newPD !== "" && this.confirmPD !== "" && this.newPD === this.confirmPD) {
+        this.$router.push({ name: "mainLogin" })
+    }
+}
+```
