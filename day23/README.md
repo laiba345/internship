@@ -78,6 +78,13 @@ const actions = {
     }
 }
 ```
+6. input框中,鼠标移入,input框中的提示词消失
+```
+input:focus::placeholder {
+    color: transparent;
+}
+```
+
 
 
 
