@@ -41,4 +41,48 @@
     ```
 3. vuex的使用
 - 组件想取到不同的store中的数据，可以通过计算属性来进行获取，
-然后通过this.$store.
+然后通过this.$store.state.XXstoreXX名字.XX属性名字
+
+- 在进行设置一个vuex中的store的时候,可以使用主文件夹下面的index.js来直接全部进行暴露操作,
+- 书写了一个store仓库
+```
+const state = {
+    phoneNumber: "",
+    veriCode: "",
+    newPassWord: ""
+}
+
+const mutations = {
+    SETPHONENUMBER(state, phoneNumber) {
+        state.phoneNumber = phoneNumber
+    }
+}
+
+const actions = {
+    setPhoneNumber({ commit }, phoneNumber) {
+        commit('SETPHONENUMBER', phoneNumber)
+    }
+}
+
+const getters = {
+
+}
+
+export default {
+    state,
+    mutations,
+    actions,
+    getters
+}
+```
+- 然后在主文件夹下面的index.js引入该文件并暴露出去
+```
+import setPd from './setPd'
+...
+...
+...
+export default new Vuex.Store({
+    modules: { setPd, user.. }
+})
+```
+
