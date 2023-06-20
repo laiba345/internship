@@ -59,3 +59,4 @@ this.userCollect = []
 - forEach()方法; 用于对数组中的每个元素执行指定的操作或回调函数
 - **forEach()方法不会改变原始数组,而是对数组中的每个元素应用指定的函数**
 - arr.forEach((item, index) => {}) 通常是这种函数回调的形式;
+
