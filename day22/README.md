@@ -85,6 +85,7 @@ export default {
 ```
 import setPd from './setPd'
 ```
+- 默认导出
 ```
 export default new Vuex.Store({
     modules: { setPd, user.. }
