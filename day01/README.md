@@ -6,7 +6,7 @@
 - 字体图标的下载
     - 添加项目
     - 将项目添加到购物车
-    - 将相关文件下载到本地，放到同一层文件夹下面，通过link来链接使用
+    - 将相关文件下载到本地，放到同一层文件夹下面，通过link来链接使用(通过link标签到本地的html文件中使用)
     - 然后在相关的html标签中通过class引入相关的图标即可
 - 字体图标的引入(两种方式)
 ```
@@ -32,11 +32,12 @@ text-decoration: none;
 ```
 text-indent: 2em;
 ```
-- 让文字的行高等于盒子的高度，让文字在当前盒子垂直居中
+- 让文字的行高等于盒子的高度，让文字在当前盒子垂直居中;
+- line-height: height
 ```
 line-height: 40px
 ```
-# 创建Vue2 ～ webpack
+# 创建Vue2 ～ webpack(命令创建Vue2的流程)
 1. npm install -g @vue/cli
 2. vue create xxxx 【切换到你要创建项目的目录，然后使用命令创建项目】
     - 项目的名称 一般起名；vue_page等
