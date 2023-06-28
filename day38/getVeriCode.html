@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取验证码</title>
+    <style>
+      @keyframes countdown {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+
+      #countdown {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: countdown 60s linear infinite;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown">60</div>
+    <button onclick="startCountdown()">获取验证码</button>
+    <script>
+      function startCountdown() {
+        var countdownElement = document.getElementById("countdown");
+        var countdownValue = parseInt(countdownElement.innerHTML);
+
+        var countdownInterval = setInterval(function () {
+          countdownValue--;
+          countdownElement.innerHTML = countdownValue;
+
+          if (countdownValue === 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "";
+            // 在这里可以添加获取验证码的逻辑
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
