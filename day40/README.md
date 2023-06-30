@@ -92,3 +92,18 @@ watch: {
 ```
 :class="['iconfont', isCollect ? 'icon-xingxingshixin' : 'icon-xingxingkongxin']"
 ```
+
+12. 在vuex中书写接口方法的时候; 需要观察接口需要传入的数据是什么;
+数据要么在actions方法中解构成后端接口的形式; 要么在组件中dispatch
+调用vuex中的actions中的方法时候进行参数的调整;
+- 将键值调整成后端需要的样子;
+```
+try {
+    const { iphoneNumber, veriStr, newPd } = this
+    const user = { phone: iphoneNumber, code: veriStr, password: AES.hashPassword(newPd) }
+    await this.$store.dispatch("resetPD", user)
+} catch (error) {
+    console.log(error.message)
+}
+this.$router.push({ name: "chat" })
+```
