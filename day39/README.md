@@ -4,6 +4,7 @@
 
 
 **pinia中的操作手段**
+- 直接通过this.xxx方法来进行调用操作； 
 ```
 actions: {
     async postUsersListAction(queryInfo: any) {
@@ -22,6 +23,7 @@ actions: {
     },
 ```
 **vuex中的操作手段** -- 因为不仅可以解构出commit还可以解构出dispatch
+- 通过actions中的方法参数，解构出dispatch来进行调用相关的方法；
 ```
 // 收藏模板
 async collectTemplate({ commit, dispatch }, tempId) {
@@ -36,11 +38,14 @@ async collectTemplate({ commit, dispatch }, tempId) {
 ```
 - Vue2中, 模版渲染和计算属性的执行顺序是在**mounted**生命周期钩子之后执行的; 
 在mounted钩子中,Vue实例已经被挂载到DOM,并且模版已经渲染完毕了
+
 - created: 在Vue实例被创建后立即调用。在这个阶段，实例已完成数据观测、属性和方法的运算，但是尚未开始DOM编译和挂载。
+    - 已经可以拿到计算属性中的值，
 - 请注意，**如果你在计算属性中依赖了异步数据（例如通过API请求获取的数据），则计算属性的值可能在mounted钩子之前不可用。在这种情况下，你可以考虑使用watch或者created钩子来处理异步数据。**
+    - 异步数据，通常是在watch和created中来进行处理
 
 - 在Vue 2中，通过props将数据从父组件传递给子组件时，默认情况下是非响应式的。这意味着当父组件中的prop数据发生变化时，子组件不会自动更新来反映这些变化。
-- 然而，Vue 2提供了一种方式来使props数据成为响应式的，即使用`prop`选项的`sync`修饰符。使用`sync`修饰符，可以将子组件对prop数据的修改反映回父组件中。
+- 然而，Vue 2提供了一种方式来使props数据成为响应式的，即使用`prop`选项的`sync`修饰符。使用`sync`修饰符，**可以将子组件对prop数据的修改反映回父组件中**
 ```
 <!-- ParentComponent.vue -->
 <template>
@@ -55,7 +60,8 @@ async collectTemplate({ commit, dispatch }, tempId) {
 - 在JavaScript中，**?. 是可选链操作符**（Optional Chaining Operator）的一部分。它的作用是简化访问可能不存在的属性或方法时的代码编写，**并避免因为访问不存在的属性或方法而导致的错误。**
 - 如果有链式操作的话, 就需要通过?.
 
-2. vuex中的数据是响应式的,用于管理应用程序的全局状态,当你在vuex中定义和修改数据时,数据会自动转化为响应式的;
+2. **vuex中的数据是响应式的**,用于管理应用程序的全局状态,当你在vuex中定义和修改数据时,数据会自动转化为响应式的;
+    - vuex中会一直帮忙维护相关的数据，用于响应式，即相关数据更新，页面会跟着自动更新操作
 ```
 当你通过store.state访问Vuex中的状态数据时，这些数据是响应式的。当你在组件中使用this.$store.state或使用辅助函数如mapState来获取状态数据时，当状态数据发生变化时，相关的组件将会更新。
 当你在组件中通过this.$store.commit提交一个mutation来修改Vuex中的数据时，这些修改也会被追踪，以便Vue可以在必要时更新相关的组件.
@@ -69,7 +75,7 @@ async collectTemplate({ commit, dispatch }, tempId) {
 当你通过store.state访问Vuex中的状态数据时，这些数据是响应式的。当你在组件中使用this.$store.state或使用辅助函数如mapState来获取状态数据时，当状态数据发生变化时，相关的组件将会更新。
 当你在组件中通过this.$store.commit提交一个mutation来修改Vuex中的数据时，这些修改也会被追踪，以便Vue可以在必要时更新相关的组件。
 ```
-5. 在某个组件中,获取vuex中的动态的数据,通常是在计算属性computed中进行获取; 
+5. **在某个组件中,获取vuex中的动态的数据,通常是在计算属性computed中进行获取**
 - this.$store.state.xxxVuex名字xxxx.属性名
 ```
 lickTempData() {
