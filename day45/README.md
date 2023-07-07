@@ -25,6 +25,6 @@ git branch --set-upstream-to=origin/KangDemo master
 - react中初始化状态一般都是使用简写的形势，不需要在构造器中进行相关调用操作！ 
 
 - 组件的自定义方法中this为undefined，如何解决
-1. 强制绑定this,通过函数对象的bind()
+1. 强制绑定this,通过函数对象的bind();
 2. 定义的方法，使用箭头函数来实现！ 
 
