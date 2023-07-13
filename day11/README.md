@@ -8,6 +8,7 @@
 ```
 git checkout mian # 切换到主分支
 git pull origin/master main # 拉取最新的主分支代码
+git pull origin master
 ```
 
 3. 切换回你的目标分支,将主分支上的内容合并到当前分支
