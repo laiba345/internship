@@ -17,3 +17,7 @@
 
 # day39 & day40
 - Vuex的重点使用以及组件间通信问题
+
+# day51
+- localStorage在项目中的使用
+

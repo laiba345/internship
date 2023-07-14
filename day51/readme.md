@@ -34,3 +34,37 @@
     - 可以自己进行相关配置
 - 数据访问
 
+3. 会话技术在项目中的使用
+- 在公共暴露的方法JS中书写相应的方法
+- localStorageUtil.js
+- 
+```
+export function setProjectHistory(history) {
+    window.localStorage.setItem(projectHistory, JSON.stringify(history))
+}
+export function getProjectHistory() {
+    let o = window.localStorage.getItem(projectHistory)
+    return o ? JSON.parse(o) : []
+}
+```
+
+- 在组件中进行使用; 一般我们放在浏览器中的东西都是需要在页面进行直接展示的，**一般放在生命周期created()中**
+```
+let items = getProjectHistoryPlus()
+items = items.map(o => JSON.stringify(o))
+items = [...new Set(items)]
+items = items.map(o => JSON.parse(o))
+this.habit = items
+this.firstItem[1].nextArr.push(...this.habit)
+this.$nextTick(() => {
+    this.firstItem[0]?.nextArr?.forEach(itemFirst => {
+    this.firstItem[1]?.nextArr?.forEach(itemSecond => {
+        if (itemFirst.text === itemSecond.text) {
+        console.log('yes');
+        this.$set(itemSecond, 'isCollect', true);
+        }
+    })
+    })
+})
+```
+
