@@ -6,7 +6,7 @@
     ```
     localStorage.setItem('key', 'value');
     ```
-    - 检索数据
+    - 检索数据; 通过直接获取来拿到； 
     ```
     const value = localStorage.getItem('key');
     ```
@@ -60,7 +60,6 @@ this.$nextTick(() => {
     this.firstItem[0]?.nextArr?.forEach(itemFirst => {
     this.firstItem[1]?.nextArr?.forEach(itemSecond => {
         if (itemFirst.text === itemSecond.text) {
-        console.log('yes');
         this.$set(itemSecond, 'isCollect', true);
         }
     })
