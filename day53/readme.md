@@ -1,8 +1,9 @@
 # day53
 1. 在vue组件的使用过程中，在模板中可以书写方法，传入的参数往往有
 index等， 但是也可以直接传入某一个数组里面的对象，通过对象的内容来一次次完成即可
-- 例如: this.firstItem[index1].nextArr[index2].text其实就相当于
-是itemNext.text，这一点非常关键,
+- 例如: this.firstItem[index1].nextArr[index2].text其实就相当于是itemNext.text，这一点非常关键,
+- 因为在模板中可以传入很多东西进来
+
 - 在组件模版中可以拿到很多东西,因为v-for进行遍历的时候有对象和索引,通过索引可以具体定位,也可以直接传入相关的数据;
 - 拿到相应元素的ID，然后再进行相应操作，是Vue中常用的操作(拿到相应的key,然后进行相应操作也可以)
 
