@@ -61,3 +61,129 @@ const customDirective = {
 
 总结
 - 自定义指令可以用于在元素上添加特定的行为，操作DOM、实现自定义的事件处理逻辑等
+
+
+JSON格式的书写
+```
+const buried = [
+    {
+        title: '登录',
+        loginBuried: [
+            {
+                number: 501,
+                text: '历史按钮',
+            },
+            {
+                number: 600,
+                text: '小红书文案',
+            },
+            {
+                number: 601,
+                text: '公众号文案',
+            },
+            {
+                number: 602,
+                text: '知乎文案',
+            },
+            {
+                number: 603,
+                text: '百家号文案',
+            },
+            {
+                number: 604,
+                text: '微博',
+            },
+            {
+                number: 605,
+                text: '大众点评',
+            },
+            {
+                number: 1166,
+                text: '浏览提示词按钮',
+            },
+            {
+                number: 1277,
+                text: '联网搜索按钮',
+            },
+            {
+                number: 1388,
+                text: '发送聊天次数',
+            },
+            {
+                number: 1499,
+                text: '富文本编辑框',
+            },
+        ]
+    },
+    {
+        title: '未登录',
+        unLoginBuried: [
+            {
+                number: 1,
+                text: '历史按钮',
+            },
+            {
+                number: 100,
+                text: '小红书文案',
+            },
+            {
+                number: 101,
+                text: '公众号文案',
+            },
+            {
+                number: 102,
+                text: '知乎文案',
+            },
+            {
+                number: 103,
+                text: '百家号文案',
+            },
+            {
+                number: 104,
+                text: '微博',
+            },
+            {
+                number: 105,
+                text: '大众点评',
+            },
+            {
+                number: 666,
+                text: '浏览提示词按钮',
+            },
+            {
+                number: 777,
+                text: '联网搜索按钮',
+            },
+            {
+                number: 888,
+                text: '发送聊天次数',
+            },
+            {
+                number: 999,
+                text: '富文本编辑框',
+            },
+        ]
+    },
+];
+```
+
+- 自定义指令的实现 通过Vue.directive()来实现
+```
+Vue.directive('buried', {
+    bind: (el, binding) => {
+        const { value } = binding
+        el.addEventListener('click', async () => {
+            if (getUser().id) {
+                // console.log('value', value, typeof value);
+                const loginValue = value + 500
+                await submitPoint(loginValue)
+            } else {
+                await submitPoint(value)
+            }
+        });
+    }
+})
+```
+!!! 非常需要注意的一点是:
+- 编写好自定义指令以后，需要将其导入到师main.js中进行全局引入操作
+import '@/directives/buried'
